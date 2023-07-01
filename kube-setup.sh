@@ -47,12 +47,15 @@ systemctl restart kubelet
 echo "##########################################################################
 
 
-
  After this you have to require to run below command on specific node:
 
 # On Master Node: kubeadm init --cri-socket unix:///var/run/cri-dockerd.sock
+To start using your cluster, you need to run the following as a regular user:
 
-# On Slave Node: Master_Node_Token  --cri-socket unix:///var/run/cri-dockerd.sock
+  $ mkdir -p $HOME/.kube
+  $ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+  $ sudo chown $(id -u):$(id -g) $HOME/.kube/config
+# On Slave Node: Master_Node_Token --cri-socket unix:///var/run/cri-dockerd.sock
 
 ###########################################################################"
 echo "##########################################################################
@@ -61,10 +64,11 @@ Follow this steps and apply on master node for Installing Calico networking
 https://docs.tigera.io/calico/latest/getting-started/kubernetes/self-managed-onprem/onpremises#install-calico-with-kubernetes-api-datastore-50-nodes-or-less > Follow these steps
 ---- OR -----
 Run these command on Master Node :-
-curl https://raw.githubusercontent.com/projectcalico/calico/v3.26.1/manifests/calico.yaml -O
-kubectl apply -f calico.yaml
+$ sudo curl https://raw.githubusercontent.com/projectcalico/calico/v3.26.1/manifests/calico.yaml -O
+$ kubectl apply -f calico.yaml
 ------ Wait five minutes----
 kubectl get nodes -o wide
+
 ###########################################################################"
 
 
