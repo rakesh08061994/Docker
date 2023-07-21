@@ -72,26 +72,14 @@ $ kubectl get nodes -o wide
 
 ###########################################################################"
 "###########################################################################
-
 If you want to reset and resetup cluster on machine, try these steps on particular version
-kubeadm reset 
-/*On Debian base Operating systems you can use the following command.*/
-# on debian base 
-sudo apt-get purge kubeadm kubectl kubelet kubernetes-cni kube* 
-
-
-/*On CentOs distribution systems you can use the following command.*/
-#on centos base
-sudo yum remove kubeadm kubectl kubelet kubernetes-cni kube*
-
-
-# on debian base
-sudo apt-get autoremove
-
-#on centos base
-sudo yum autoremove
-
-/For all/
-sudo rm -rf ~/.kube
-
+$sudo kubeadm reset all
+------------------- on debian base  --------------------------- 
+$ sudo apt-get purge kubeadm kubectl kubelet kubernetes-cni kube* 
+$ sudo rm -rf ~/.kube
+------------------- on centos base  --------------------------
+$ sudo yum remove kubeadm kubectl kubelet kubernetes-cni kube*
+$ rm -rf ~/.kube
+----------- Regenerate new token from master node--------------------
+$ sudo kubeadm token create --print-join-command
 ###########################################################################"
