@@ -16,10 +16,8 @@ sudo systemctl restart docker
 sudo systemctl enable docker
 # -------------------------------- Docker Installation complete ---------------------------------------
 git clone https://github.com/Mirantis/cri-dockerd.git
-sudo wget https://storage.googleapis.com/golang/getgo/installer_linux
-chmod +x ./installer_linux
-./installer_linux
-source ~/.bash_profile
+source ~/.bashrc
+sudo apt install -y golang
 cd cri-dockerd
 mkdir bin
 go build -o bin/cri-dockerd
