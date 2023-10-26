@@ -17,7 +17,16 @@ sudo systemctl enable docker
 # -------------------------------- Docker Installation complete ---------------------------------------
 git clone https://github.com/Mirantis/cri-dockerd.git
 source ~/.bashrc
-sudo apt install -y golang
+#-----------------------------------------------------------
+# i am adding this line for go specific version to 1.19 (Dated 26-october-2023)
+apt-get update
+wget https://go.dev/dl/go1.19.linux-amd64.tar.gz
+tar -xzf go1.19.linux-amd64.tar.gz -C /usr/local/
+echo "export PATH=$PATH:/usr/local/go/bin" >> /etc/profile
+source /etc/profile
+go version
+#----------------------------------------------------
+#sudo apt install -y golang
 cd cri-dockerd
 mkdir bin
 go build -o bin/cri-dockerd
