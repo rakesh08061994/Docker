@@ -22,7 +22,7 @@ rm -rf /usr/local/go
 rm /etc/paths.d/go
 
  
-source ~/.bashrc
+#source ~/.bashrc
 # Remove all folder associated to kubernetes, etcd, and docker
 rm -rf ~/.kube
 rm -rf /etc/cni /etc/kubernetes /var/lib/dockershim /var/lib/etcd /var/lib/kubelet /var/lib/etcd2/ /var/run/kubernetes ~/.kube/* 
